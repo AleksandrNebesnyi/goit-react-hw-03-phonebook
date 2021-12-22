@@ -35,7 +35,7 @@ class ContactForm extends Component {
         name: this.state.name,
         number: this.state.number,
       };
-  
+       
       this.props.onSubmit(contact); // Внешний метод в пропсах класса
   
       this.resetForm();
@@ -59,6 +59,8 @@ class ContactForm extends Component {
             <Input
               type="text"
               name="name"
+              placeholder="Contact name"
+              aria-label="Input for your name"
               value={name} // Пишем значение в стейт
               onChange={this.hanldeChange} // Наблюдающий метод
               pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -71,6 +73,8 @@ class ContactForm extends Component {
             <Input
               type="tel"
               name="number"
+              placeholder="Phone number"
+              aria-label="Input for your phone number"
               value={number} // Пишем значение в стейт
               onChange={this.hanldeChange} // Наблюдающий метод
               pattern="(\+?( |-|\.)?\d{1,2}( |-|\.)?)?(\(?\d{3}\)?|\d{3})( |-|\.)?(\d{3}( |-|\.)?\d{4})"
