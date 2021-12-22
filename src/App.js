@@ -9,6 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 
+
 class App extends Component {
   state ={
     contacts: [
@@ -41,13 +42,14 @@ class App extends Component {
 
      componentDidUpdate(prevProps, prevState) {
       const nextContacts = this.state.contacts;
-      if (nextContacts !== prevState.contacts) {
+      const prevContacts = prevState.contacts;
+      if (nextContacts !== prevContacts) {
         localStorage.setItem("contacts", JSON.stringify(nextContacts));
       }
     }
    
-     // Вызывается один раз при маунте!
-     // Cчитывает при маунте localStorage и записывает в стейт
+    //  Вызывается один раз при маунте!
+    //  Cчитывает при маунте localStorage и записывает в стейт
     componentDidMount() {
       const getContacts = JSON.parse(localStorage.getItem("contacts"));
       if (getContacts) {
@@ -59,9 +61,10 @@ class App extends Component {
     }
   
 
-
      // Добавляет контакт 
   addContact = newContact => {
+
+    
     // Проверка на дубликат
     const duplicateName = this.state.contacts.find(
       contact => contact.name === newContact.name,
