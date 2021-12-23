@@ -54,7 +54,7 @@ class App extends Component {
       const getContacts = JSON.parse(localStorage.getItem("contacts"));
       if (getContacts.length>0) {
         this.setState({ contacts: getContacts });
-        console.log(getContacts);
+        // console.log(getContacts);
        
       } else {
         toast.info('No save contacts');
@@ -95,7 +95,7 @@ class App extends Component {
   // Фильтрует и возвращает результат фильтра
   filterContacts = () => {
     const { contacts, filter } = this.state;
-    console.log(this.state);
+    // console.log(this.state);
     const normalizedFilter = filter.toLowerCase();
 
     if (filter !=="") {return contacts.filter(contact =>
