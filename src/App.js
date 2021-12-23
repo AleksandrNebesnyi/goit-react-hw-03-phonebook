@@ -13,26 +13,26 @@ import 'react-toastify/dist/ReactToastify.css';
 class App extends Component {
   state ={
     contacts: [
-      {
-        id: "c7a273d-8bfr-66gr-wef2-4f4d57ea2d0",
-        name: "Rosie Simpson",
-        number: "459-12-56",
-      },
-      {
-        id: "anctrjd-8bfr-66gr-wef2-4f4d57ea2d0",
-        name: "Hermione Kline",
-        number: "443-89-12",
-      },
-      {
-        id: "dkt846a-8bfr-66gr-wef2-4f4d57ea2d0",
-        name: "Eden Clements",
-        number: "645-17-79",
-      },
-      {
-        id: "hr7y3td-8bfr-66gr-wef2-4f4d57ea2d0",
-        name: "Annie Copeland",
-        number: "227-91-26",
-      },
+      // {
+      //   id: "c7a273d-8bfr-66gr-wef2-4f4d57ea2d0",
+      //   name: "Rosie Simpson",
+      //   number: "459-12-56",
+      // },
+      // {
+      //   id: "anctrjd-8bfr-66gr-wef2-4f4d57ea2d0",
+      //   name: "Hermione Kline",
+      //   number: "443-89-12",
+      // },
+      // {
+      //   id: "dkt846a-8bfr-66gr-wef2-4f4d57ea2d0",
+      //   name: "Eden Clements",
+      //   number: "645-17-79",
+      // },
+      // {
+      //   id: "hr7y3td-8bfr-66gr-wef2-4f4d57ea2d0",
+      //   name: "Annie Copeland",
+      //   number: "227-91-26",
+      // },
     ],
     filter:"",
      }
@@ -52,8 +52,9 @@ class App extends Component {
     //  Cчитывает при маунте localStorage и записывает в стейт
     componentDidMount() {
       const getContacts = JSON.parse(localStorage.getItem("contacts"));
-      if (getContacts) {
+      if (getContacts.length>0) {
         this.setState({ contacts: getContacts });
+        console.log(getContacts);
        
       } else {
         toast.info('No save contacts');
