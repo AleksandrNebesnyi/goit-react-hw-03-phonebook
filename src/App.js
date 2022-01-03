@@ -49,7 +49,7 @@ class App extends Component {
   //  Cчитывает при маунте localStorage и записывает в стейт
   componentDidMount() {
     const getContacts = JSON.parse(localStorage.getItem('contacts'));
-    if (getContacts.length > 0) {
+    if (getContacts) {
       this.setState({ contacts: getContacts });
       // console.log(getContacts);
     } else {
@@ -60,7 +60,7 @@ class App extends Component {
   // Добавляет контакт
   addContact = newContact => {
     // Проверка на дубликат
-    const duplicateName = this.state.contacts.sort(
+    const duplicateName = this.state.contacts.find(
       contact => contact.name === newContact.name,
     );
 
